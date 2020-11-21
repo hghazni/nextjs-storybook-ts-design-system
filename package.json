@@ -37,11 +37,13 @@
     "css-loader": "^4.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "file-loader": "^6.2.0",
     "jest": "^26.2.2",
     "react-test-renderer": "^17.0.1",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "ts-jest": "^26.1.4",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "url-loader": "^4.1.1"
   }
 }

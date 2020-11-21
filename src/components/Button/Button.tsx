@@ -1,4 +1,6 @@
 import React from 'react';
+import css from './button.module.scss';
+import '../../../styles/global.scss';
 
 type Props = {
   text: string;
@@ -7,7 +9,7 @@ type Props = {
 const Button: React.FunctionComponent<Props> = (props: Props) => {
     const { text } = props;
     return (
-        <button>{text}</button>
+        <button className={`${css.button} icon-shield1`}>{text}</button>
     )
 }
 

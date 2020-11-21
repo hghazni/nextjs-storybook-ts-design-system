@@ -1,9 +1,7 @@
 const path = require("path");
-
 module.exports = {
   webpackFinal: async (baseConfig, options) => {
     const { module = {} } = baseConfig;
-
     const newConfig = {
       ...baseConfig,
       module: {
@@ -11,11 +9,10 @@ module.exports = {
         rules: [...(module.rules || [])],
       },
     };
-
     // TypeScript with Next.js
     newConfig.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      include: [path.resolve(__dirname, "../components")],
+    test: /\.(ts|tsx)$/,
+      include: [path.resolve(__dirname, "../src/components")],
       use: [
         {
           loader: "babel-loader",
@@ -27,14 +24,27 @@ module.exports = {
       ],
     });
     newConfig.resolve.extensions.push(".ts", ".tsx");
-
     // SCSS preset for Storybook
-    newConfig.module.rules.push({
-      test: /\.(s*)css$/,
-      loaders: ["style-loader", "css-loader", "sass-loader"],
-      include: path.resolve(__dirname, "../styles/global.scss"),
-    });
-
+    newConfig.module.rules.push(  {
+      test: /\.(sass|css|scss)$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {url: false}
+        },
+        {
+          loader: "postcss-loader",
+          options: {
+            plugins: () => [
+              require("autoprefixer")()
+            ],
+          },
+        },
+        'sass-loader',
+      ]
+    },);
+    
     return newConfig;
   },
 };

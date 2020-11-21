@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Icon-library';
+    src:url('./fonts/iconlibrary.eot?ixpxfq'),
+    url('./fonts/iconlibrary.woff?ixpxfq') format('woff'),
+    url('./fonts/iconlibrary.ttf?ixpxfq') format('truetype'),
+    url('./fonts/iconlibrary.svg?ixpxfq#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$icons: 'Icon-library';
+
+.icon-shield1:before {
+    content: "\e956";
+}

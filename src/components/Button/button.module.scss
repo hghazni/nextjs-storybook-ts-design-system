@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+.button {
+    border: 5px dashed green;
+    background: $primaryColour;
+}
+
+.extraBtnClass {
+    box-shadow: 2px 2px 2px 0px red;
+}

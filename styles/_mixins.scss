@@ -1,0 +1,45 @@
+// Media Queries
+@mixin media-query($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// Pseudo
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// Font styles Sans (body fonts)
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false, $fontFamily: false) {
+    font-family: $fontFamily;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+// Font styles Serif (hero fonts)
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: $bodyFont;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+// Hardware Acceleration
+@mixin hardware($backface: true, $perspective: 1000) {
+    @if $backface {
+        backface-visibility: hidden;
+    }
+    perspective: $perspective;
+}
